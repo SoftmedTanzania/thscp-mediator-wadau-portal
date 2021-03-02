@@ -1,8 +1,8 @@
 # Wadau Portal to Tanzania Health Supply Chain Mediator
 
 
-[![Java CI Badge](https://github.com/SoftmedTanzania/thscp-mediator-epicor/workflows/Java%20CI%20with%20Maven/badge.svg)](https://github.com/SoftmedTanzania/thscp-mediator-epicor/actions?query=workflow%3A%22Java+CI+with+Maven%22)
-[![Coverage Status](https://coveralls.io/repos/github/SoftmedTanzania/thscp-mediator-epicor/badge.svg?branch=development)](https://coveralls.io/github/SoftmedTanzania/thscp-mediator-epicor?branch=development)
+[![Java CI Badge](https://github.com/SoftmedTanzania/thscp-mediator-wadau-portal/workflows/Java%20CI%20with%20Maven/badge.svg)](https://github.com/SoftmedTanzania/thscp-mediator-wadau-portal/actions?query=workflow%3A%22Java+CI+with+Maven%22)
+[![Coverage Status](https://coveralls.io/repos/github/SoftmedTanzania/thscp-mediator-wadau-portal/badge.svg?branch=development)](https://coveralls.io/github/SoftmedTanzania/thscp-mediator-wadau-portal?branch=development)
 
 An [OpenHIM](http://openhim.org/) mediator for handling system integration between Wadau Portal and Tanzania Health Supply Chain Mediator.
 
