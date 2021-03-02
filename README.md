@@ -50,28 +50,28 @@ The configuration parameters specific to the mediator and the mediator's metadat
       "urn": "urn:uuid:ec45e340-7b2d-11eb-b0d5-03e896a4bfc7",
       "version": "0.1.0",
       "name": "THSCP-Mediator-Wadau Portal",
-      "description": "A mediator for handling system integration betwe",
+      "description": "A mediator for handling system integration between Wadau Portal and THSCP",
       "endpoints": [
         {
           "name": "THSCP-Mediator-Wadau Portal Route",
           "host": "localhost",
           "port": "3019",
-          "path": " /thscp",
+          "path": "/thscp",
           "type": "http"
         }
       ],
       "defaultChannelConfig": [
         {
-          "name": "THSCP-Mediator-Wadau Portal",
-          "urlPattern": "^ /thscp$",
+          "name": "Wadau Portal - THSCP Channel",
+          "urlPattern": "^/thscp$",
           "type": "http",
-          "allow": ["thscp-mediator-wadauportal"],
+          "allow": ["thscp-mediator-wadauportal-role"],
           "routes": [
             {
               "name": "THSCP-Mediator-Wadau Portal Route",
               "host": "localhost",
               "port": "3019",
-              "path": " /thscp",
+              "path": "/thscp",
               "type": "http",
               "primary": "true"
             }
@@ -137,5 +137,5 @@ To build and run the mediator after performing the above configurations, run the
 
 ```
   mvn clean package -DskipTests=true -e source:jar javadoc:jar
-  java -jar target/thscp-mediator-wadau-portal``-<version>-jar-with-dependencies.jar
+  java -jar target/thscp-mediator-wadau-portal-<version>-jar-with-dependencies.jar
 ```
