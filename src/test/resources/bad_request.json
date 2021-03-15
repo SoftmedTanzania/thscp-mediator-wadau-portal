@@ -1,0 +1,38 @@
+[
+  {
+    "uuid": "not a valid UUID",
+    "partnerIdentification": "Rasello team",
+    "color": "#00fa92",
+    "scope": "this is the final demo",
+    "latitude": "[-6.91034,-6.172144,-8.51382,-4.7721]",
+    "longitude": "[39.26977,35.640203,35.7468,38.42585]",
+    "districts": "['Ilala','Kinondoni', 'Kaliua', 'Maswa']"
+  },
+  {
+    "uuid": null,
+    "partnerIdentification": "Rasello team",
+    "color": "#00fa92",
+    "scope": "this is the final demo",
+    "latitude": "[-6.91034,-6.172144,-8.51382,-4.7721]",
+    "longitude": "[39.26977,35.640203,35.7468,38.42585]",
+    "districts": "['Ilala','Kinondoni', 'Kaliua', 'Maswa']"
+  },
+  {
+    "uuid": null,
+    "partnerIdentification": "Rasello team",
+    "color": "#00fa92",
+    "scope": "this is the final demo",
+    "latitude": null,
+    "longitude": "[39.26977,35.640203,35.7468,38.42585]",
+    "districts": "['Ilala','Kinondoni', 'Kaliua', 'Maswa']"
+  },
+  {
+    "uuid": null,
+    "partnerIdentification": "Rasello team",
+    "color": "#00fa92",
+    "scope": "this is the final demo",
+    "latitude": null,
+    "longitude": "[39.26977,35.640203,35.7468,38.42585]",
+    "districts": "[]"
+  }
+]
