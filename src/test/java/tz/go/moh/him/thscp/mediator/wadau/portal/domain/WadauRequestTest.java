@@ -1,6 +1,5 @@
 package tz.go.moh.him.thscp.mediator.wadau.portal.domain;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
 import org.junit.Test;

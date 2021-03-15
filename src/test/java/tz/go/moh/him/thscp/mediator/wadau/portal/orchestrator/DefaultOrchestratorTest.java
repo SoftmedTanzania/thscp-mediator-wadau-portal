@@ -217,7 +217,7 @@ public class DefaultOrchestratorTest {
             }.get();
 
             Assert.assertTrue(Arrays.stream(out).anyMatch(c -> c instanceof FinishRequest));
-//            Assert.assertTrue(Arrays.stream(out).allMatch(c -> (c instanceof FinishRequest) && ((FinishRequest) c).getResponse().contains("Failed") && ((FinishRequest) c).getResponseStatus() == 400));
+//            Assert.assertTrue(Arrays.stream(out).allMatch(c -> (c instanceof FinishRequest) && ((FinishRequest) c).getResponse().contains("Error") && ((FinishRequest) c).getResponseStatus() == 400));
         }};
     }
 }
