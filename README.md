@@ -17,8 +17,7 @@ An [OpenHIM](http://openhim.org/) mediator for handling system integration betwe
 
 This mediator is designed to work with Wadau Portal that send JSON Payloads while communicating with the THSCP via the HIM.
 
-### 3 Configuration Parameters
-
+### 2.1 Mediator Properties
 The configuration parameters specific to the mediator and destination system can be found at
 
 `src/main/resources/mediator.properties`
@@ -42,6 +41,7 @@ The configuration parameters specific to the mediator and destination system can
     destination.scheme=destination-system-scheme
 ```
 
+### 2.2 Mediator Registration
 The configuration parameters specific to the mediator and the mediator's metadata can be found at
 
 `src/main/resources/mediator-registration-info.json`
@@ -132,7 +132,7 @@ The configuration parameters specific to the mediator and the mediator's metadat
     }
 ```
 
-## 4. Deployment
+## 3. Deployment
 
 To build and run the mediator after performing the above configurations, run the following
 
