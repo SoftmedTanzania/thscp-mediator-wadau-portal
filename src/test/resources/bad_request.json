@@ -28,11 +28,29 @@
   },
   {
     "uuid": null,
+    "partnerIdentification": null,
+    "color": "#00fa92",
+    "scope": "this is the final demo",
+    "latitude": null,
+    "longitude": "[39.26977,35.640203,35.7468,38.42585]",
+    "districts": "[]"
+  },
+  {
+    "uuid": null,
     "partnerIdentification": "Rasello team",
     "color": "#00fa92",
     "scope": "this is the final demo",
     "latitude": null,
     "longitude": "[39.26977,35.640203,35.7468,38.42585]",
+    "districts": null
+  },
+  {
+    "uuid": null,
+    "partnerIdentification": "Rasello team",
+    "color": "#00fa92",
+    "scope": null,
+    "latitude": null,
+    "longitude": null,
     "districts": "[]"
   }
 ]

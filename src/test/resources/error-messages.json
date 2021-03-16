@@ -1,4 +1,4 @@
 {
-  "PARSE_ERR01": "Unable to parse '{0}' as a valid '{1}'",
-  "NN_ERR01": "'{0}' cannot be null or empty"
+  "PARSE_ERR01": "Unable to parse '%s' as a valid '%s'",
+  "NN_ERR01": "'%s' cannot be null or empty"
 }

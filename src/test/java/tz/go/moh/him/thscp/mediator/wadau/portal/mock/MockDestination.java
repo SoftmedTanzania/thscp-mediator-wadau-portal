@@ -83,12 +83,23 @@ public class MockDestination extends MockHTTPConnector {
         Assert.assertNotNull(actual);
         Assert.assertNotNull(expected);
 
-//        Assert.assertEquals(expected.getCommonFacilityName(), actual.getCommonFacilityName());
-//        Assert.assertEquals(expected.getCouncil(), actual.getCouncil());
-//        Assert.assertEquals(expected.getCouncilCode(), actual.getCouncilCode());
-//        Assert.assertEquals(expected.getCreatedAt(), actual.getCreatedAt());
-//        Assert.assertEquals(expected.getDistrict(), actual.getDistrict());
-//        Assert.assertEquals(expected.getFacilityIdNumber(), actual.getFacilityIdNumber());
-//        Assert.assertEquals(expected.getFacilityType(), actual.getFacilityType());
+        Assert.assertEquals(2, actual.size());
+        Assert.assertEquals(expected.size(), actual.size());
+
+        Assert.assertEquals(expected.get(0).getColour(), actual.get(0).getColour());
+        Assert.assertEquals(expected.get(0).getDistricts(), actual.get(0).getDistricts());
+        Assert.assertEquals(expected.get(0).getLatitude(), actual.get(0).getLatitude());
+        Assert.assertEquals(expected.get(0).getLongitude(), actual.get(0).getLongitude());
+        Assert.assertEquals(expected.get(0).getPartnerIdentification(), actual.get(0).getPartnerIdentification());
+        Assert.assertEquals(expected.get(0).getScope(), actual.get(0).getScope());
+        Assert.assertEquals(expected.get(0).getUuid(), actual.get(0).getUuid());
+
+        Assert.assertEquals(expected.get(1).getColour(), actual.get(1).getColour());
+        Assert.assertEquals(expected.get(1).getDistricts(), actual.get(1).getDistricts());
+        Assert.assertEquals(expected.get(1).getLatitude(), actual.get(1).getLatitude());
+        Assert.assertEquals(expected.get(1).getLongitude(), actual.get(1).getLongitude());
+        Assert.assertEquals(expected.get(1).getPartnerIdentification(), actual.get(1).getPartnerIdentification());
+        Assert.assertEquals(expected.get(1).getScope(), actual.get(1).getScope());
+        Assert.assertEquals(expected.get(1).getUuid(), actual.get(1).getUuid());
     }
 }

@@ -41,11 +41,6 @@ public class DefaultOrchestrator extends UntypedActor {
     private final JSONObject errorMessageResource;
 
     /**
-     * The error messages.
-     */
-    private ArrayList<ErrorMessage> errorMessages = new ArrayList<>();
-
-    /**
      * The logger instance.
      */
     private final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
@@ -70,11 +65,6 @@ public class DefaultOrchestrator extends UntypedActor {
 
         try {
             InputStream stream = DefaultOrchestrator.class.getClassLoader().getResourceAsStream("error-messages.json");
-
-            if (stream == null) {
-                throw new IllegalStateException("Stream is null when attempting to read 'error-messages'.json");
-            }
-
             this.errorMessageResource = new JSONObject(IOUtils.toString(stream));
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -100,8 +90,6 @@ public class DefaultOrchestrator extends UntypedActor {
             headers.put(HttpHeaders.CONTENT_TYPE, "application/json");
 
             List<Pair<String, String>> parameters = new ArrayList<>();
-
-            WadauRequest[] wadauRequests = serializer.deserialize(workingRequest.getBody(), WadauRequest[].class);
 
             String host;
             int port;
@@ -142,6 +130,7 @@ public class DefaultOrchestrator extends UntypedActor {
                 }
             }
 
+            List<WadauRequest> wadauRequests = Arrays.asList(serializer.deserialize(workingRequest.getBody(), WadauRequest[].class));
             List<ResultDetail> results = this.validateMessage(wadauRequests);
 
             // if there are any errors
@@ -170,10 +159,10 @@ public class DefaultOrchestrator extends UntypedActor {
     /**
      * Validates a Wadau request.
      *
-     * @param requests The .
+     * @param requests The requests.
      * @return Returns a list of result details.
      */
-    private List<ResultDetail> validateMessage(WadauRequest[] requests) {
+    private List<ResultDetail> validateMessage(List<WadauRequest> requests) {
         ArrayList<ResultDetail> results = new ArrayList<>();
 
         for (WadauRequest request : requests) {
@@ -205,7 +194,7 @@ public class DefaultOrchestrator extends UntypedActor {
             try {
                 UUID.fromString(request.getUuid());
             } catch (NullPointerException | IllegalArgumentException e) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("PARSE_ERR01"), request.getUuid(), "UUID"), null));
+                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("PARSE_ERR01"), request.getUuid(), UUID.class.getName()), null));
             }
         }
 

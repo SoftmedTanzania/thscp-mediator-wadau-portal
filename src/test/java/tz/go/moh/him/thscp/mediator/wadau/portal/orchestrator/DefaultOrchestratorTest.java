@@ -13,6 +13,8 @@ import org.openhim.mediator.engine.messages.FinishRequest;
 import org.openhim.mediator.engine.messages.MediatorHTTPRequest;
 import org.openhim.mediator.engine.testing.MockLauncher;
 import org.openhim.mediator.engine.testing.TestingUtils;
+import tz.go.moh.him.mediator.core.domain.ResultDetail;
+import tz.go.moh.him.mediator.core.serialization.JsonSerializer;
 import tz.go.moh.him.thscp.mediator.wadau.portal.DefaultOrchestrator;
 import tz.go.moh.him.thscp.mediator.wadau.portal.mock.MockDestination;
 
@@ -215,8 +217,20 @@ public class DefaultOrchestratorTest {
                 }
             }.get();
 
+            Assert.assertNotNull(out);
             Assert.assertTrue(Arrays.stream(out).anyMatch(c -> c instanceof FinishRequest));
-//            Assert.assertTrue(Arrays.stream(out).allMatch(c -> (c instanceof FinishRequest) && ((FinishRequest) c).getResponse().contains("Error") && ((FinishRequest) c).getResponseStatus() == 400));
+            Assert.assertTrue(Arrays.stream(out).allMatch(c -> (c instanceof FinishRequest) && ((FinishRequest) c).getResponse().contains("ERROR") && ((FinishRequest) c).getResponseStatus() == 400));
+
+            Assert.assertEquals(1, out.length);
+
+            FinishRequest finishRequest = (FinishRequest) out[0];
+
+            JsonSerializer serializer = new JsonSerializer();
+
+            List<ResultDetail> resultDetails = Arrays.asList(serializer.deserialize(finishRequest.getResponse(), ResultDetail[].class));
+
+            Assert.assertEquals(19, resultDetails.size());
+            System.out.println(finishRequest.getResponse());
         }};
     }
 }
