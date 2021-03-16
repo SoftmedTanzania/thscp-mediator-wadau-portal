@@ -15,7 +15,6 @@ import org.openhim.mediator.engine.MediatorConfig;
 import org.openhim.mediator.engine.messages.FinishRequest;
 import org.openhim.mediator.engine.messages.MediatorHTTPRequest;
 import org.openhim.mediator.engine.messages.MediatorHTTPResponse;
-import tz.go.moh.him.mediator.core.domain.ErrorMessage;
 import tz.go.moh.him.mediator.core.domain.ResultDetail;
 import tz.go.moh.him.mediator.core.serialization.JsonSerializer;
 import tz.go.moh.him.thscp.mediator.wadau.portal.domain.WadauRequest;
@@ -31,25 +30,21 @@ import java.util.*;
 public class DefaultOrchestrator extends UntypedActor {
 
     /**
+     * The serializer.
+     */
+    private static final JsonSerializer serializer = new JsonSerializer();
+    /**
      * The mediator config.
      */
     private final MediatorConfig config;
-
     /**
      * The error message resource.
      */
     private final JSONObject errorMessageResource;
-
     /**
      * The logger instance.
      */
     private final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
-
-    /**
-     * The serializer.
-     */
-    private static final JsonSerializer serializer = new JsonSerializer();
-
     /**
      * The working request.
      */
@@ -194,7 +189,7 @@ public class DefaultOrchestrator extends UntypedActor {
             try {
                 UUID.fromString(request.getUuid());
             } catch (NullPointerException | IllegalArgumentException e) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("PARSE_ERR01"), request.getUuid(), UUID.class.getName()), null));
+                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("PARSE_ERR01"), request.getUuid(), UUID.class.getName()), e.getMessage()));
             }
         }
 

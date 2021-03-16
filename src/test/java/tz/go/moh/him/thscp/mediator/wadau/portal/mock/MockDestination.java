@@ -33,7 +33,11 @@ public class MockDestination extends MockHTTPConnector {
      */
     @Override
     public String getResponse() {
-        return null;
+        try {
+            return IOUtils.toString(DefaultOrchestratorTest.class.getClassLoader().getResourceAsStream("success_response.json"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**

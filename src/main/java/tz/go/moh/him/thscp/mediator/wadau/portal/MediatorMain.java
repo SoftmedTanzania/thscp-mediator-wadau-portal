@@ -5,6 +5,7 @@ import akka.event.Logging;
 import akka.event.LoggingAdapter;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openhim.mediator.engine.*;
 
 import java.io.File;
@@ -57,7 +58,7 @@ public class MediatorMain {
     private static MediatorConfig loadConfig(String configPath) throws IOException, RoutingTable.RouteAlreadyMappedException {
         MediatorConfig config = new MediatorConfig();
 
-        if (configPath != null) {
+        if (StringUtils.isNotEmpty(configPath)) {
             Properties props = new Properties();
             File conf = new File(configPath);
             InputStream in = FileUtils.openInputStream(conf);

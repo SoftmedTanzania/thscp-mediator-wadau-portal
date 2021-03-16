@@ -1,6 +1,6 @@
 [
   {
-    "uuid": "not a valid UUID",
+    "uuid": "ABCD",
     "partnerIdentification": "Rasello team",
     "color": "#00fa92",
     "scope": "this is the final demo",
@@ -9,7 +9,7 @@
     "districts": "['Ilala','Kinondoni', 'Kaliua', 'Maswa']"
   },
   {
-    "uuid": null,
+    "uuid": 12345,
     "partnerIdentification": "Rasello team",
     "color": "#00fa92",
     "scope": "this is the final demo",
@@ -45,12 +45,7 @@
     "districts": null
   },
   {
-    "uuid": null,
-    "partnerIdentification": "Rasello team",
-    "color": "#00fa92",
-    "scope": null,
-    "latitude": null,
-    "longitude": null,
-    "districts": "[]"
+    "partnerIdentification": "Final entry",
+    "color": "#00fa92"
   }
 ]

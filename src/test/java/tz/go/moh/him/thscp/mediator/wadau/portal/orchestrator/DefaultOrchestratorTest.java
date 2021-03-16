@@ -30,12 +30,12 @@ public class DefaultOrchestratorTest {
     /**
      * Represents the configuration.
      */
-    protected static MediatorConfig configuration;
+    private static MediatorConfig configuration;
 
     /**
      * Represents the system actor.
      */
-    protected static ActorSystem system;
+    private static ActorSystem system;
 
     /**
      * Represents the orchestrator.
@@ -73,7 +73,6 @@ public class DefaultOrchestratorTest {
      */
     public static MediatorConfig loadConfig(String configPath) {
         MediatorConfig config = new MediatorConfig();
-
 
         try {
             if (configPath != null) {
@@ -171,10 +170,10 @@ public class DefaultOrchestratorTest {
 
             String expectedResponse = IOUtils.toString(responseStream);
 
-            JsonParser parser = new JsonParser();
+            Assert.assertNotNull(expectedResponse);
 
             Assert.assertTrue(Arrays.stream(out).anyMatch(c -> c instanceof FinishRequest));
-//            Assert.assertTrue(Arrays.stream(out).allMatch(c -> (c instanceof FinishRequest) && parser.parse(expectedResponse).equals(parser.parse(((FinishRequest) c).getResponse()))));
+            Assert.assertTrue(Arrays.stream(out).allMatch(c -> (c instanceof FinishRequest) && JsonParser.parseString(expectedResponse).equals(JsonParser.parseString(((FinishRequest) c).getResponse()))));
         }};
     }
 
@@ -230,7 +229,6 @@ public class DefaultOrchestratorTest {
             List<ResultDetail> resultDetails = Arrays.asList(serializer.deserialize(finishRequest.getResponse(), ResultDetail[].class));
 
             Assert.assertEquals(19, resultDetails.size());
-            System.out.println(finishRequest.getResponse());
         }};
     }
 }

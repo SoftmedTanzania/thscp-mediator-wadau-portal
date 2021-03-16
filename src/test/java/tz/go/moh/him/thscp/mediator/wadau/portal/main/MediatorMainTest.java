@@ -30,4 +30,23 @@ public class MediatorMainTest {
         Assert.assertEquals(Integer.valueOf(60000), mediatorConfig.getRootTimeout());
         Assert.assertTrue(mediatorConfig.getHeartsbeatEnabled());
     }
+
+    /**
+     * Test the mediator main class loading the configuration.
+     *
+     * @throws Exception
+     */
+    @Test
+    public void mediatorMainTestNoConfigPath() throws Exception {
+
+        Method loadConfigMethod = MediatorMain.class.getDeclaredMethod("loadConfig", String.class);
+
+        loadConfigMethod.setAccessible(true);
+        MediatorConfig mediatorConfig = (MediatorConfig) loadConfigMethod.invoke(null, "");
+
+        Assert.assertEquals("localhost", mediatorConfig.getServerHost());
+        Assert.assertEquals(Integer.valueOf(3019), mediatorConfig.getServerPort());
+        Assert.assertEquals(Integer.valueOf(60000), mediatorConfig.getRootTimeout());
+        Assert.assertTrue(mediatorConfig.getHeartsbeatEnabled());
+    }
 }

@@ -57,6 +57,7 @@ public class WadauRequest {
 
     /**
      * Gets the colour.
+     *
      * @return Returns the colour.
      */
     public String getColour() {
@@ -65,6 +66,7 @@ public class WadauRequest {
 
     /**
      * Sets the colour.
+     *
      * @param colour The colour to set.
      */
     public void setColour(String colour) {
@@ -73,6 +75,7 @@ public class WadauRequest {
 
     /**
      * Gets the districts.
+     *
      * @return Returns the districts.
      */
     public String getDistricts() {
@@ -81,6 +84,7 @@ public class WadauRequest {
 
     /**
      * Sets the districts.
+     *
      * @param districts The districts to set.
      */
     public void setDistricts(String districts) {
@@ -90,6 +94,7 @@ public class WadauRequest {
     /**
      * Gets the latitude. This is represented as an array but also as a string from the sending system.
      * i.e. "['-4.123', '-5.123', '-6.123']"
+     *
      * @return Returns the latitude.
      */
     public String getLatitude() {
@@ -98,6 +103,7 @@ public class WadauRequest {
 
     /**
      * Sets the latitude.
+     *
      * @param latitude The latitude to set.
      */
     public void setLatitude(String latitude) {
@@ -107,6 +113,7 @@ public class WadauRequest {
     /**
      * Gets the longitude. This is represented as an array but also as a string from the sending system.
      * i.e. "['40.123', '39.123', '38.123']"
+     *
      * @return Returns the longitude.
      */
     public String getLongitude() {
@@ -115,6 +122,7 @@ public class WadauRequest {
 
     /**
      * Sets the longitude.
+     *
      * @param longitude The longitude to set.
      */
     public void setLongitude(String longitude) {
@@ -123,6 +131,7 @@ public class WadauRequest {
 
     /**
      * Gets the partner identification.
+     *
      * @return Returns the partner identification.
      */
     public String getPartnerIdentification() {
@@ -131,6 +140,7 @@ public class WadauRequest {
 
     /**
      * Sets the partner identification.
+     *
      * @param partnerIdentification The partner identification to set.
      */
     public void setPartnerIdentification(String partnerIdentification) {
@@ -139,6 +149,7 @@ public class WadauRequest {
 
     /**
      * Gets the scope.
+     *
      * @return Returns the scope.
      */
     public String getScope() {
@@ -147,6 +158,7 @@ public class WadauRequest {
 
     /**
      * Sets the scope.
+     *
      * @param scope The scope to set.
      */
     public void setScope(String scope) {
@@ -155,6 +167,7 @@ public class WadauRequest {
 
     /**
      * Gets the UUID.
+     *
      * @return Returns the UUID.
      */
     public String getUuid() {
@@ -163,6 +176,7 @@ public class WadauRequest {
 
     /**
      * Sets the UUID.
+     *
      * @param uuid The UUID to set.
      */
     public void setUuid(String uuid) {
