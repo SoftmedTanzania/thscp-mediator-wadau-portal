@@ -4,45 +4,90 @@
     "partnerIdentification": "Rasello team",
     "color": "#00fa92",
     "scope": "this is the final demo",
-    "latitude": "[-6.91034,-6.172144,-8.51382,-4.7721]",
-    "longitude": "[39.26977,35.640203,35.7468,38.42585]",
-    "districts": "['Ilala','Kinondoni', 'Kaliua', 'Maswa']"
+    "locations": [
+      {
+        "district": "              ",
+        "latitude": -5.91034,
+        "longitude": 40.26977
+      },
+      {
+        "district": "Test District 2",
+        "latitude": -5.172144,
+        "longitude": 36.640203
+      }
+    ]
   },
   {
     "uuid": 12345,
     "partnerIdentification": "Rasello team",
     "color": "#00fa92",
     "scope": "this is the final demo",
-    "latitude": "[-6.91034,-6.172144,-8.51382,-4.7721]",
-    "longitude": "[39.26977,35.640203,35.7468,38.42585]",
-    "districts": "['Ilala','Kinondoni', 'Kaliua', 'Maswa']"
+    "locations": [
+      {
+        "district": "Test District 1",
+        "latitude": -5.91034,
+        "longitude": 40.26977
+      },
+      {
+        "district": "Test District 2",
+        "latitude": -5.172144,
+        "longitude": 36.640203
+      }
+    ]
   },
   {
     "uuid": null,
     "partnerIdentification": "Rasello team",
     "color": "#00fa92",
-    "scope": "this is the final demo",
-    "latitude": null,
-    "longitude": "[39.26977,35.640203,35.7468,38.42585]",
-    "districts": "['Ilala','Kinondoni', 'Kaliua', 'Maswa']"
+    "scope": "      ",
+    "locations": [
+      {
+        "district": null,
+        "latitude": -5.91034,
+        "longitude": 40.26977
+      },
+      {
+        "district": "",
+        "latitude": -5.172144,
+        "longitude": 36.640203
+      }
+    ]
   },
   {
     "uuid": null,
     "partnerIdentification": null,
     "color": "#00fa92",
-    "scope": "this is the final demo",
-    "latitude": null,
-    "longitude": "[39.26977,35.640203,35.7468,38.42585]",
-    "districts": "[]"
+    "scope": "",
+    "locations": [
+      {
+        "district": "Test District 1",
+        "latitude": -5.91034,
+        "longitude": 40.26977
+      },
+      {
+        "district": "     ",
+        "latitude": -5.172144,
+        "longitude": 36.640203
+      }
+    ]
   },
   {
     "uuid": null,
     "partnerIdentification": "Rasello team",
     "color": "#00fa92",
-    "scope": "this is the final demo",
-    "latitude": null,
-    "longitude": "[39.26977,35.640203,35.7468,38.42585]",
-    "districts": null
+    "scope": null,
+    "locations": [
+      {
+        "district": "Test District 1",
+        "latitude": -91,
+        "longitude": -181
+      },
+      {
+        "district": "Test District 2",
+        "latitude": 91,
+        "longitude": 181
+      }
+    ]
   },
   {
     "partnerIdentification": "Final entry",

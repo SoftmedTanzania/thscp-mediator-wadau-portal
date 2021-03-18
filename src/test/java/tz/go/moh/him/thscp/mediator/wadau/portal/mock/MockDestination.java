@@ -15,6 +15,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import static tz.go.moh.him.thscp.mediator.wadau.portal.Constants.DELTA;
+
 /**
  * Represents a mock destination.
  */
@@ -91,17 +93,23 @@ public class MockDestination extends MockHTTPConnector {
         Assert.assertEquals(expected.size(), actual.size());
 
         Assert.assertEquals(expected.get(0).getColour(), actual.get(0).getColour());
-        Assert.assertEquals(expected.get(0).getDistricts(), actual.get(0).getDistricts());
-        Assert.assertEquals(expected.get(0).getLatitude(), actual.get(0).getLatitude());
-        Assert.assertEquals(expected.get(0).getLongitude(), actual.get(0).getLongitude());
+        Assert.assertEquals(expected.get(0).getLocations().get(0).getDistrict(), actual.get(0).getLocations().get(0).getDistrict());
+        Assert.assertEquals(expected.get(0).getLocations().get(0).getLatitude(), actual.get(0).getLocations().get(0).getLatitude(), DELTA);
+        Assert.assertEquals(expected.get(0).getLocations().get(0).getLongitude(), actual.get(0).getLocations().get(0).getLongitude(), DELTA);
+        Assert.assertEquals(expected.get(0).getLocations().get(1).getDistrict(), actual.get(0).getLocations().get(1).getDistrict());
+        Assert.assertEquals(expected.get(0).getLocations().get(1).getLatitude(), actual.get(0).getLocations().get(1).getLatitude(), DELTA);
+        Assert.assertEquals(expected.get(0).getLocations().get(1).getLongitude(), actual.get(0).getLocations().get(1).getLongitude(), DELTA);
         Assert.assertEquals(expected.get(0).getPartnerIdentification(), actual.get(0).getPartnerIdentification());
         Assert.assertEquals(expected.get(0).getScope(), actual.get(0).getScope());
         Assert.assertEquals(expected.get(0).getUuid(), actual.get(0).getUuid());
 
         Assert.assertEquals(expected.get(1).getColour(), actual.get(1).getColour());
-        Assert.assertEquals(expected.get(1).getDistricts(), actual.get(1).getDistricts());
-        Assert.assertEquals(expected.get(1).getLatitude(), actual.get(1).getLatitude());
-        Assert.assertEquals(expected.get(1).getLongitude(), actual.get(1).getLongitude());
+        Assert.assertEquals(expected.get(1).getLocations().get(0).getDistrict(), actual.get(1).getLocations().get(0).getDistrict());
+        Assert.assertEquals(expected.get(1).getLocations().get(0).getLatitude(), actual.get(1).getLocations().get(0).getLatitude(), DELTA);
+        Assert.assertEquals(expected.get(1).getLocations().get(0).getLongitude(), actual.get(1).getLocations().get(0).getLongitude(), DELTA);
+        Assert.assertEquals(expected.get(1).getLocations().get(1).getDistrict(), actual.get(1).getLocations().get(1).getDistrict());
+        Assert.assertEquals(expected.get(1).getLocations().get(1).getLatitude(), actual.get(1).getLocations().get(1).getLatitude(), DELTA);
+        Assert.assertEquals(expected.get(1).getLocations().get(1).getLongitude(), actual.get(1).getLocations().get(1).getLongitude(), DELTA);
         Assert.assertEquals(expected.get(1).getPartnerIdentification(), actual.get(1).getPartnerIdentification());
         Assert.assertEquals(expected.get(1).getScope(), actual.get(1).getScope());
         Assert.assertEquals(expected.get(1).getUuid(), actual.get(1).getUuid());

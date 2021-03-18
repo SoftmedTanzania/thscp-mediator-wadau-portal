@@ -228,7 +228,7 @@ public class DefaultOrchestratorTest {
 
             List<ResultDetail> resultDetails = Arrays.asList(serializer.deserialize(finishRequest.getResponse(), ResultDetail[].class));
 
-            Assert.assertEquals(19, resultDetails.size());
+            Assert.assertEquals(23, resultDetails.size());
         }};
     }
 }

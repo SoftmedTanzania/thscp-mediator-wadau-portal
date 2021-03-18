@@ -2,6 +2,9 @@ package tz.go.moh.him.thscp.mediator.wadau.portal.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Represents a Wadau (Stakeholder) request.
  */
@@ -14,22 +17,10 @@ public class WadauRequest {
     private String colour;
 
     /**
-     * The list of districts.
+     * The locations.
      */
-    @JsonProperty("districts")
-    private String districts;
-
-    /**
-     * The list of latitudes.
-     */
-    @JsonProperty("latitude")
-    private String latitude;
-
-    /**
-     * The list of longitudes.
-     */
-    @JsonProperty("longitude")
-    private String longitude;
+    @JsonProperty("locations")
+    private List<Location> locations;
 
     /**
      * The partner identification.
@@ -53,6 +44,7 @@ public class WadauRequest {
      * Initializes a new instance of the {@link WadauRequest} class.
      */
     public WadauRequest() {
+        this.setLocations(new ArrayList<>());
     }
 
     /**
@@ -74,59 +66,21 @@ public class WadauRequest {
     }
 
     /**
-     * Gets the districts.
+     * Gets the locations.
      *
-     * @return Returns the districts.
+     * @return Returns the locations.
      */
-    public String getDistricts() {
-        return districts;
+    public List<Location> getLocations() {
+        return locations;
     }
 
     /**
-     * Sets the districts.
+     * Sets the locations.
      *
-     * @param districts The districts to set.
+     * @param locations The locations to set.
      */
-    public void setDistricts(String districts) {
-        this.districts = districts;
-    }
-
-    /**
-     * Gets the latitude. This is represented as an array but also as a string from the sending system.
-     * i.e. "['-4.123', '-5.123', '-6.123']"
-     *
-     * @return Returns the latitude.
-     */
-    public String getLatitude() {
-        return latitude;
-    }
-
-    /**
-     * Sets the latitude.
-     *
-     * @param latitude The latitude to set.
-     */
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    /**
-     * Gets the longitude. This is represented as an array but also as a string from the sending system.
-     * i.e. "['40.123', '39.123', '38.123']"
-     *
-     * @return Returns the longitude.
-     */
-    public String getLongitude() {
-        return longitude;
-    }
-
-    /**
-     * Sets the longitude.
-     *
-     * @param longitude The longitude to set.
-     */
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 
     /**
