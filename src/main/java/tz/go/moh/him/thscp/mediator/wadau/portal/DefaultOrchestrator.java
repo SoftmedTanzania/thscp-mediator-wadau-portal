@@ -56,16 +56,11 @@ public class DefaultOrchestrator extends UntypedActor {
      *
      * @param config The configuration.
      */
-    public DefaultOrchestrator(MediatorConfig config) {
+    public DefaultOrchestrator(MediatorConfig config) throws IOException {
         this.config = config;
 
-        try {
-            InputStream stream = DefaultOrchestrator.class.getClassLoader().getResourceAsStream("error-messages.json");
-            this.errorMessageResource = new JSONObject(IOUtils.toString(stream));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        InputStream stream = DefaultOrchestrator.class.getClassLoader().getResourceAsStream("error-messages.json");
+        this.errorMessageResource = new JSONObject(IOUtils.toString(stream));
     }
 
     /**
