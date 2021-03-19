@@ -7,7 +7,12 @@ import akka.testkit.JavaTestKit;
 import com.google.gson.JsonParser;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Assert;
+import org.junit.Test;
 import org.openhim.mediator.engine.MediatorConfig;
 import org.openhim.mediator.engine.messages.FinishRequest;
 import org.openhim.mediator.engine.messages.MediatorHTTPRequest;
@@ -19,6 +24,7 @@ import tz.go.moh.him.thscp.mediator.wadau.portal.DefaultOrchestrator;
 import tz.go.moh.him.thscp.mediator.wadau.portal.mock.MockDestination;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
@@ -56,13 +62,9 @@ public class DefaultOrchestratorTest {
      * Runs initialization before each class execution.
      */
     @BeforeClass
-    public static void beforeClass() {
-        try {
-            configuration = loadConfig(null);
-            system = ActorSystem.create();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public static void beforeClass() throws IOException {
+        configuration = loadConfig(null);
+        system = ActorSystem.create();
     }
 
     /**
@@ -71,23 +73,19 @@ public class DefaultOrchestratorTest {
      * @param configPath The configuration path.
      * @return Returns the mediator configuration.
      */
-    public static MediatorConfig loadConfig(String configPath) {
+    public static MediatorConfig loadConfig(String configPath) throws IOException {
         MediatorConfig config = new MediatorConfig();
 
-        try {
-            if (configPath != null) {
-                Properties props = new Properties();
-                File conf = new File(configPath);
-                InputStream in = FileUtils.openInputStream(conf);
-                props.load(in);
-                IOUtils.closeQuietly(in);
+        if (configPath != null) {
+            Properties props = new Properties();
+            File conf = new File(configPath);
+            InputStream in = FileUtils.openInputStream(conf);
+            props.load(in);
+            IOUtils.closeQuietly(in);
 
-                config.setProperties(props);
-            } else {
-                config.setProperties("mediator.properties");
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            config.setProperties(props);
+        } else {
+            config.setProperties("mediator.properties");
         }
 
         config.setName(config.getProperty("mediator.name"));

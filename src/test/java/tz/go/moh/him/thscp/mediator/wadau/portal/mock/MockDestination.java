@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static tz.go.moh.him.thscp.mediator.wadau.portal.Constants.DELTA;
+import static tz.go.moh.him.thscp.mediator.wadau.portal.TestConstants.DELTA;
 
 /**
  * Represents a mock destination.

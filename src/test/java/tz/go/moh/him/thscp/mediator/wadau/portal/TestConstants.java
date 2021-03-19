@@ -3,7 +3,7 @@ package tz.go.moh.him.thscp.mediator.wadau.portal;
 /**
  * Represents constants for testing purposes.
  */
-public class Constants {
+public class TestConstants {
 
     /**
      * The delta.

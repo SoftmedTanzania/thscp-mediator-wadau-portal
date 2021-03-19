@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-import static tz.go.moh.him.thscp.mediator.wadau.portal.Constants.DELTA;
+import static tz.go.moh.him.thscp.mediator.wadau.portal.TestConstants.DELTA;
 
 /**
  * Contains tests for the {@link WadauRequestTest} class.
@@ -23,18 +23,12 @@ public class WadauRequestTest {
      * Tests the deserialization of an Wadau request.
      */
     @Test
-    public void testDeserializeWadauRequest() {
+    public void testDeserializeWadauRequest() throws IOException {
         InputStream stream = WadauRequestTest.class.getClassLoader().getResourceAsStream("request.json");
 
         Assert.assertNotNull(stream);
 
-        String data;
-
-        try {
-            data = IOUtils.toString(stream);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        String data = IOUtils.toString(stream);
 
         Assert.assertNotNull(data);
 
