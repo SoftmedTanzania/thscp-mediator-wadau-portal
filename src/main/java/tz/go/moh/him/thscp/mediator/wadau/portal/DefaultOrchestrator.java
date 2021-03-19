@@ -148,6 +148,32 @@ public class DefaultOrchestrator extends UntypedActor {
     }
 
     /**
+     * Validates a location.
+     *
+     * @param request The request.
+     * @return Returns a list of result details.
+     */
+    private List<ResultDetail> validateLocation(WadauRequest request) {
+        List<ResultDetail> results = new ArrayList<>();
+
+        for (Location location : request.getLocations()) {
+            if (StringUtils.isEmpty(location.getDistrict()) || StringUtils.isWhitespace(location.getDistrict())) {
+                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "district"), null));
+            }
+
+            if (location.getLatitude() < -90 || location.getLatitude() > 90) {
+                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("RANGE_ERR01"), "latitude", location.getLatitude(), -90.0, 90.0), null));
+            }
+
+            if (location.getLongitude() < -180 || location.getLongitude() > 180) {
+                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("RANGE_ERR01"), "longitude", location.getLongitude(), -180.0, 180.0), null));
+            }
+        }
+
+        return results;
+    }
+
+    /**
      * Validates a Wadau request.
      *
      * @param requests The requests.
@@ -169,19 +195,7 @@ public class DefaultOrchestrator extends UntypedActor {
                 results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "scope"), null));
             }
 
-            for (Location location : request.getLocations()) {
-                if (StringUtils.isEmpty(location.getDistrict()) || StringUtils.isWhitespace(location.getDistrict())) {
-                    results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "district"), null));
-                }
-
-                if (location.getLatitude() < -90 || location.getLatitude() > 90) {
-                    results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("RANGE_ERR01"), "latitude", location.getLatitude(), -90.0, 90.0), null));
-                }
-
-                if (location.getLongitude() < -180 || location.getLongitude() > 180) {
-                    results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("RANGE_ERR01"), "longitude", location.getLongitude(), -180.0, 180.0), null));
-                }
-            }
+            results.addAll(this.validateLocation(request));
 
             // HACK: java has no native way to validate is a string is a valid UUID
             try {
