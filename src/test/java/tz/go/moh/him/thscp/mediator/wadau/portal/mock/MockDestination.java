@@ -70,18 +70,18 @@ public class MockDestination extends MockHTTPConnector {
 
         JsonSerializer serializer = new JsonSerializer();
 
-        List<WadauRequest> expected;
+        List<WadauRequest> expected = null;
 
         try {
             expected = Arrays.asList(serializer.deserialize(IOUtils.toByteArray(stream), WadauRequest[].class));
+            Assert.assertNotNull(expected);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Assert.fail();
         }
 
         List<WadauRequest> actual = Arrays.asList(serializer.deserialize(msg.getBody(), WadauRequest[].class));
 
         Assert.assertNotNull(actual);
-        Assert.assertNotNull(expected);
 
         Assert.assertEquals(2, actual.size());
         Assert.assertEquals(expected.size(), actual.size());
