@@ -5,8 +5,6 @@ import akka.actor.UntypedActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpStatus;
@@ -17,11 +15,9 @@ import org.openhim.mediator.engine.messages.MediatorHTTPRequest;
 import org.openhim.mediator.engine.messages.MediatorHTTPResponse;
 import tz.go.moh.him.mediator.core.domain.ResultDetail;
 import tz.go.moh.him.mediator.core.serialization.JsonSerializer;
-import tz.go.moh.him.thscp.mediator.wadau.portal.domain.Location;
 import tz.go.moh.him.thscp.mediator.wadau.portal.domain.WadauRequest;
+import tz.go.moh.him.thscp.mediator.wadau.portal.utils.ValidationUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -34,14 +30,12 @@ public class DefaultOrchestrator extends UntypedActor {
      * The serializer.
      */
     private static final JsonSerializer serializer = new JsonSerializer();
+
     /**
      * The mediator config.
      */
     private final MediatorConfig config;
-    /**
-     * The error message resource.
-     */
-    private final JSONObject errorMessageResource;
+
     /**
      * The logger instance.
      */
@@ -56,11 +50,8 @@ public class DefaultOrchestrator extends UntypedActor {
      *
      * @param config The configuration.
      */
-    public DefaultOrchestrator(MediatorConfig config) throws IOException {
+    public DefaultOrchestrator(MediatorConfig config) {
         this.config = config;
-
-        InputStream stream = DefaultOrchestrator.class.getClassLoader().getResourceAsStream("error-messages.json");
-        this.errorMessageResource = new JSONObject(IOUtils.toString(stream));
     }
 
     /**
@@ -122,7 +113,7 @@ public class DefaultOrchestrator extends UntypedActor {
             }
 
             List<WadauRequest> wadauRequests = Arrays.asList(serializer.deserialize(workingRequest.getBody(), WadauRequest[].class));
-            List<ResultDetail> results = this.validateMessage(wadauRequests);
+            List<ResultDetail> results = ValidationUtils.validateMessage(wadauRequests);
 
             // if there are any errors
             // we need to serialize the results and return
@@ -145,66 +136,5 @@ public class DefaultOrchestrator extends UntypedActor {
         } else {
             unhandled(msg);
         }
-    }
-
-    /**
-     * Validates a location.
-     *
-     * @param request The request.
-     * @return Returns a list of result details.
-     */
-    private List<ResultDetail> validateLocation(WadauRequest request) {
-        List<ResultDetail> results = new ArrayList<>();
-
-        for (Location location : request.getLocations()) {
-            if (StringUtils.isEmpty(location.getDistrict()) || StringUtils.isWhitespace(location.getDistrict())) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "district"), null));
-            }
-
-            if (location.getLatitude() < -90 || location.getLatitude() > 90) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("RANGE_ERR01"), "latitude", location.getLatitude(), -90.0, 90.0), null));
-            }
-
-            if (location.getLongitude() < -180 || location.getLongitude() > 180) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("RANGE_ERR01"), "longitude", location.getLongitude(), -180.0, 180.0), null));
-            }
-        }
-
-        return results;
-    }
-
-    /**
-     * Validates a Wadau request.
-     *
-     * @param requests The requests.
-     * @return Returns a list of result details.
-     */
-    private List<ResultDetail> validateMessage(List<WadauRequest> requests) {
-        ArrayList<ResultDetail> results = new ArrayList<>();
-
-        for (WadauRequest request : requests) {
-            if (StringUtils.isEmpty(request.getUuid()) || StringUtils.isWhitespace(request.getUuid())) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "uuid"), null));
-            }
-
-            if (StringUtils.isEmpty(request.getPartnerIdentification()) || StringUtils.isWhitespace(request.getPartnerIdentification())) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "partnerIdentification"), null));
-            }
-
-            if (StringUtils.isEmpty(request.getScope()) || StringUtils.isWhitespace(request.getScope())) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "scope"), null));
-            }
-
-            results.addAll(this.validateLocation(request));
-
-            // HACK: java has no native way to validate is a string is a valid UUID
-            try {
-                UUID.fromString(request.getUuid());
-            } catch (NullPointerException | IllegalArgumentException e) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("PARSE_ERR01"), request.getUuid(), UUID.class.getName()), e.getMessage()));
-            }
-        }
-
-        return results;
     }
 }
