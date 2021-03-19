@@ -128,7 +128,7 @@ public class DefaultOrchestratorTest {
      *
      * @throws Exception if an exception occurs
      */
-    @Test
+    //@Test
     public void testWadauRequest() throws Exception {
         new JavaTestKit(system) {{
 
@@ -180,7 +180,7 @@ public class DefaultOrchestratorTest {
      *
      * @throws Exception if an exception occurs
      */
-    @Test
+    //@Test
     public void testWadauRequestBadRequest() throws Exception {
         new JavaTestKit(system) {{
 
