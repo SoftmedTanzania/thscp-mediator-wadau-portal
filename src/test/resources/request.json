@@ -1,0 +1,38 @@
+[
+  {
+    "uuid": "61ee3f67-992c-432b-8536-2b89aa3165a8",
+    "partnerIdentification": "Rasello team",
+    "color": "#00fa92",
+    "scope": "this is the final demo",
+    "locations": [
+      {
+        "district": "Ilala",
+        "latitude": -6.91034,
+        "longitude": 39.26977
+      },
+      {
+        "district": "Kinondoni",
+        "latitude": -6.172144,
+        "longitude": 35.640203
+      }
+    ]
+  },
+  {
+    "uuid": "18d00370-dab6-41b3-ba73-f98f73c533c6",
+    "partnerIdentification": "Test 2",
+    "color": "#FFFFFF",
+    "scope": "Scope 2",
+    "locations": [
+      {
+        "district": "Test District 1",
+        "latitude": -5.91034,
+        "longitude": 40.26977
+      },
+      {
+        "district": "Test District 2",
+        "latitude": -5.172144,
+        "longitude": 36.640203
+      }
+    ]
+  }
+]

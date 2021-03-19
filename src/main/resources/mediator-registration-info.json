@@ -17,7 +17,9 @@
       "name": "Wadau Portal - THSCP Channel",
       "urlPattern": "^/thscp$",
       "type": "http",
-      "allow": ["thscp-mediator-wadauportal-role"],
+      "allow": [
+        "thscp-mediator-wadauportal-role"
+      ],
       "routes": [
         {
           "name": "THSCP-Mediator-Wadau Portal Route",
