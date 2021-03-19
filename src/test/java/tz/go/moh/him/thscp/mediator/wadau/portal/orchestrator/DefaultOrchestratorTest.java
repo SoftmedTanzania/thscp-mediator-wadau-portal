@@ -158,7 +158,6 @@ public class DefaultOrchestratorTest {
                     if (msg instanceof FinishRequest) {
                         return msg;
                     }
-                    Assert.fail();
                     throw noMatch();
                 }
             }.get();
@@ -211,7 +210,6 @@ public class DefaultOrchestratorTest {
                     if (msg instanceof FinishRequest) {
                         return msg;
                     }
-                    Assert.fail();
                     throw noMatch();
                 }
             }.get();
