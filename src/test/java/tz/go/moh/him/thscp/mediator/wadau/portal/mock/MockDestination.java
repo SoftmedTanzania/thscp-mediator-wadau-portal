@@ -23,12 +23,6 @@ import static tz.go.moh.him.thscp.mediator.wadau.portal.TestConstants.DELTA;
 public class MockDestination extends MockHTTPConnector {
 
     /**
-     * Initializes a new instance of the {@link MockDestination} class.
-     */
-    public MockDestination() {
-    }
-
-    /**
      * Gets the response.
      *
      * @return Returns the response.
@@ -38,7 +32,7 @@ public class MockDestination extends MockHTTPConnector {
         try {
             return IOUtils.toString(DefaultOrchestratorTest.class.getClassLoader().getResourceAsStream("success_response.json"));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            return null;
         }
     }
 
