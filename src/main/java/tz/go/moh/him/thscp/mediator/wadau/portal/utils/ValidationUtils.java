@@ -18,7 +18,7 @@ public class ValidationUtils {
     /**
      * The error message resource.
      */
-    private static JSONObject errorMessageResource;
+    private static final JSONObject errorMessageResource;
 
     /*
       Initializes static members of the {@link ValidationUtils} class.
