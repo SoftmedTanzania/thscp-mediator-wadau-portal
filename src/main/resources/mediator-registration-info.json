@@ -1,7 +1,7 @@
 {
   "urn": "urn:uuid:ec45e340-7b2d-11eb-b0d5-03e896a4bfc7",
   "version": "0.1.0",
-  "name": "THSCP-Mediator-Wadau Portal",
+  "name": "Wadau Portal - THSCP Mediator",
   "description": "A mediator for handling system integration between Wadau Portal and THSCP",
   "endpoints": [
     {
