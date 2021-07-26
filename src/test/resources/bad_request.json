@@ -1,9 +1,9 @@
 [
   {
     "uuid": "ABCD",
-    "partnerIdentification": "Rasello team",
+    "name": "Rasello team",
     "color": "#00fa92",
-    "scope": "this is the final demo",
+    "description": "this is the final demo",
     "locations": [
       {
         "district": "              ",
@@ -19,9 +19,9 @@
   },
   {
     "uuid": 12345,
-    "partnerIdentification": "Rasello team",
+    "name": "Rasello team",
     "color": "#00fa92",
-    "scope": "this is the final demo",
+    "description": "this is the final demo",
     "locations": [
       {
         "district": "Test District 1",
@@ -37,9 +37,9 @@
   },
   {
     "uuid": null,
-    "partnerIdentification": "Rasello team",
+    "name": "Rasello team",
     "color": "#00fa92",
-    "scope": "      ",
+    "description": "      ",
     "locations": [
       {
         "district": null,
@@ -55,9 +55,9 @@
   },
   {
     "uuid": null,
-    "partnerIdentification": null,
+    "name": null,
     "color": "#00fa92",
-    "scope": "",
+    "description": "",
     "locations": [
       {
         "district": "Test District 1",
@@ -73,9 +73,9 @@
   },
   {
     "uuid": null,
-    "partnerIdentification": "Rasello team",
+    "name": "Rasello team",
     "color": "#00fa92",
-    "scope": null,
+    "description": null,
     "locations": [
       {
         "district": "Test District 1",
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "partnerIdentification": "Final entry",
+    "name": "Final entry",
     "color": "#00fa92"
   }
 ]

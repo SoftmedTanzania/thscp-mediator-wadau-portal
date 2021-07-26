@@ -35,19 +35,7 @@ public class WadauRequest {
     private List<Location> locations;
 
     /**
-     * The partner identification.
-     */
-    @JsonProperty("partnerIdentification")
-    private String partnerIdentification;
-
-    /**
-     * The scope.
-     */
-    @JsonProperty("scope")
-    private String scope;
-
-    /**
-     * The colour.
+     * The uuid.
      */
     @JsonProperty("uuid")
     private String uuid;
@@ -93,42 +81,6 @@ public class WadauRequest {
      */
     public void setLocations(List<Location> locations) {
         this.locations = locations;
-    }
-
-    /**
-     * Gets the partner identification.
-     *
-     * @return Returns the partner identification.
-     */
-    public String getPartnerIdentification() {
-        return partnerIdentification;
-    }
-
-    /**
-     * Sets the partner identification.
-     *
-     * @param partnerIdentification The partner identification to set.
-     */
-    public void setPartnerIdentification(String partnerIdentification) {
-        this.partnerIdentification = partnerIdentification;
-    }
-
-    /**
-     * Gets the scope.
-     *
-     * @return Returns the scope.
-     */
-    public String getScope() {
-        return scope;
-    }
-
-    /**
-     * Sets the scope.
-     *
-     * @param scope The scope to set.
-     */
-    public void setScope(String scope) {
-        this.scope = scope;
     }
 
     /**
