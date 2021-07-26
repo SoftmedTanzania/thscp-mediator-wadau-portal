@@ -17,6 +17,12 @@ public class WadauRequest {
     private String name;
 
     /**
+     * The description.
+     */
+    @JsonProperty("description")
+    private String description;
+
+    /**
      * The colour.
      */
     @JsonProperty("color")
@@ -159,5 +165,23 @@ public class WadauRequest {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Gets the Description.
+     *
+     * @return Returns the Description.
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Sets the Description.
+     *
+     * @param description The Description to set.
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
