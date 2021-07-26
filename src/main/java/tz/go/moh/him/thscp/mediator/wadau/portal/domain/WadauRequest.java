@@ -11,6 +11,12 @@ import java.util.List;
 public class WadauRequest {
 
     /**
+     * The name.
+     */
+    @JsonProperty("name")
+    private String name;
+
+    /**
      * The colour.
      */
     @JsonProperty("color")
@@ -135,5 +141,23 @@ public class WadauRequest {
      */
     public void setUuid(String uuid) {
         this.uuid = uuid;
+    }
+
+    /**
+     * Gets the Name.
+     *
+     * @return Returns the Name.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Sets the name.
+     *
+     * @param name The Name to set.
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }
