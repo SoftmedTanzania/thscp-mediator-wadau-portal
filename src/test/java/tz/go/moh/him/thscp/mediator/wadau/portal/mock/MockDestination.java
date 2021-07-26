@@ -93,19 +93,20 @@ public class MockDestination extends MockHTTPConnector {
         Assert.assertEquals(expected.get(0).getLocations().get(1).getDistrict(), actual.get(0).getLocations().get(1).getDistrict());
         Assert.assertEquals(expected.get(0).getLocations().get(1).getLatitude(), actual.get(0).getLocations().get(1).getLatitude(), DELTA);
         Assert.assertEquals(expected.get(0).getLocations().get(1).getLongitude(), actual.get(0).getLocations().get(1).getLongitude(), DELTA);
-        Assert.assertEquals(expected.get(0).getPartnerIdentification(), actual.get(0).getPartnerIdentification());
-        Assert.assertEquals(expected.get(0).getScope(), actual.get(0).getScope());
+        Assert.assertEquals(expected.get(0).getName(), actual.get(0).getName());
+        Assert.assertEquals(expected.get(0).getDescription(), actual.get(0).getDescription());
         Assert.assertEquals(expected.get(0).getUuid(), actual.get(0).getUuid());
 
         Assert.assertEquals(expected.get(1).getColour(), actual.get(1).getColour());
+        Assert.assertEquals(expected.get(1).getLocations().get(0).getRegion(), actual.get(1).getLocations().get(0).getRegion());
         Assert.assertEquals(expected.get(1).getLocations().get(0).getDistrict(), actual.get(1).getLocations().get(0).getDistrict());
         Assert.assertEquals(expected.get(1).getLocations().get(0).getLatitude(), actual.get(1).getLocations().get(0).getLatitude(), DELTA);
         Assert.assertEquals(expected.get(1).getLocations().get(0).getLongitude(), actual.get(1).getLocations().get(0).getLongitude(), DELTA);
         Assert.assertEquals(expected.get(1).getLocations().get(1).getDistrict(), actual.get(1).getLocations().get(1).getDistrict());
         Assert.assertEquals(expected.get(1).getLocations().get(1).getLatitude(), actual.get(1).getLocations().get(1).getLatitude(), DELTA);
         Assert.assertEquals(expected.get(1).getLocations().get(1).getLongitude(), actual.get(1).getLocations().get(1).getLongitude(), DELTA);
-        Assert.assertEquals(expected.get(1).getPartnerIdentification(), actual.get(1).getPartnerIdentification());
-        Assert.assertEquals(expected.get(1).getScope(), actual.get(1).getScope());
+        Assert.assertEquals(expected.get(1).getName(), actual.get(1).getName());
+        Assert.assertEquals(expected.get(1).getDescription(), actual.get(1).getDescription());
         Assert.assertEquals(expected.get(1).getUuid(), actual.get(1).getUuid());
     }
 }

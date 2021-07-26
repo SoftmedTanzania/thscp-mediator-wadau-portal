@@ -72,12 +72,12 @@ public class ValidationUtils {
                 results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "uuid"), null));
             }
 
-            if (StringUtils.isEmpty(request.getPartnerIdentification()) || StringUtils.isWhitespace(request.getPartnerIdentification())) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "partnerIdentification"), null));
+            if (StringUtils.isEmpty(request.getName()) || StringUtils.isWhitespace(request.getName())) {
+                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "name"), null));
             }
 
-            if (StringUtils.isEmpty(request.getScope()) || StringUtils.isWhitespace(request.getScope())) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "scope"), null));
+            if (StringUtils.isEmpty(request.getDescription()) || StringUtils.isWhitespace(request.getDescription())) {
+                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("NN_ERR01"), "description"), null));
             }
 
             results.addAll(validateLocation(request));
