@@ -14,7 +14,7 @@ public class LocationTest {
      */
     @Test(expected = ArgumentNullException.class)
     public void testLocationExceptionAllParameters() {
-        new Location(null, 91, 181);
+        new Location(null,null, 91, 181);
     }
 
     /**
@@ -22,7 +22,7 @@ public class LocationTest {
      */
     @Test(expected = ArgumentNullException.class)
     public void testLocationExceptionDistrictNull() {
-        new Location(null, -5, -40);
+        new Location(null,null, -5, -40);
     }
 
     /**
@@ -30,7 +30,7 @@ public class LocationTest {
      */
     @Test(expected = ArgumentNullException.class)
     public void testLocationExceptionDistrictEmpty() {
-        new Location("", -5, -40);
+        new Location("","", -5, -40);
     }
 
     /**
@@ -38,7 +38,7 @@ public class LocationTest {
      */
     @Test(expected = ArgumentNullException.class)
     public void testLocationExceptionDistrictWhitespace() {
-        new Location("    ", -5, -40);
+        new Location("", "    ", -5, -40);
     }
 
     /**
@@ -46,7 +46,7 @@ public class LocationTest {
      */
     @Test(expected = ArgumentException.class)
     public void testLocationExceptionLatitude() {
-        new Location("test", -91, 180);
+        new Location("test","test", -91, 180);
     }
 
     /**
@@ -54,6 +54,6 @@ public class LocationTest {
      */
     @Test(expected = ArgumentException.class)
     public void testLocationExceptionLongitude() {
-        new Location("test", 90, -181);
+        new Location("test","test", 90, -181);
     }
 }

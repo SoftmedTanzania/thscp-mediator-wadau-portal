@@ -11,6 +11,12 @@ import tz.go.moh.him.mediator.core.exceptions.ArgumentNullException;
 public class Location {
 
     /**
+     * The region.
+     */
+    @JsonProperty("region")
+    private String region;
+
+    /**
      * The district.
      */
     @JsonProperty("district")
@@ -38,12 +44,17 @@ public class Location {
     /**
      * Initializes a new instance of the {@link Location} class.
      *
+     * @param region  The region.
      * @param district  The district.
      * @param latitude  The latitude.
      * @param longitude The longitude.
      */
-    public Location(String district, double latitude, double longitude) {
+    public Location(String region, String district, double latitude, double longitude) {
         this();
+
+        if (StringUtils.isEmpty(region) || StringUtils.isBlank(region) || StringUtils.isWhitespace(region)) {
+            throw new ArgumentNullException("region - Value cannot be null");
+        }
 
         if (StringUtils.isEmpty(district) || StringUtils.isBlank(district) || StringUtils.isWhitespace(district)) {
             throw new ArgumentNullException("district - Value cannot be null");
@@ -60,6 +71,24 @@ public class Location {
         this.setDistrict(district);
         this.setLatitude(latitude);
         this.setLongitude(longitude);
+    }
+
+    /**
+     * Gets the region.
+     *
+     * @return Returns the region.
+     */
+    public String getRegion() {
+        return region;
+    }
+
+    /**
+     * Sets the region.
+     *
+     * @param region The region to set.
+     */
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     /**

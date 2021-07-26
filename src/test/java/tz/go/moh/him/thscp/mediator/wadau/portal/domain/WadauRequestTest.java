@@ -72,7 +72,7 @@ public class WadauRequestTest {
         WadauRequest request = new WadauRequest();
 
         request.setColour("#000000");
-        request.getLocations().add(new Location("Test", -5, 40));
+        request.getLocations().add(new Location("Test","Test", -5, 40));
         request.setPartnerIdentification("partner");
         request.setScope("scope");
         request.setUuid(UUID.fromString("2602e885-ed1b-4225-ae0b-9763e0658a2c").toString());
