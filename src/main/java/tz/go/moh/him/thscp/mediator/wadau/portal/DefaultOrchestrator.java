@@ -132,7 +132,12 @@ public class DefaultOrchestrator extends UntypedActor {
             httpConnector.tell(request, getSelf());
 
         } else if (msg instanceof MediatorHTTPResponse) {
-            workingRequest.getRequestHandler().tell(((MediatorHTTPResponse) msg).toFinishRequest(), getSelf());
+            if (((MediatorHTTPResponse) msg).getStatusCode() == HttpStatus.SC_OK) {
+                FinishRequest finishRequest = new FinishRequest(((MediatorHTTPResponse) msg).getBody(), "application/json", HttpStatus.SC_OK);
+                workingRequest.getRequestHandler().tell(finishRequest, getSelf());
+            } else {
+                workingRequest.getRequestHandler().tell(((MediatorHTTPResponse) msg).toFinishRequest(), getSelf());
+            }
         } else {
             unhandled(msg);
         }
