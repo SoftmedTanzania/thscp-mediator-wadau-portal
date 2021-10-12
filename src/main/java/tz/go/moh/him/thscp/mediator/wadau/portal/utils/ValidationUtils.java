@@ -81,13 +81,6 @@ public class ValidationUtils {
             }
 
             results.addAll(validateLocation(request));
-
-            // HACK: java has no native way to validate is a string is a valid UUID
-            try {
-                UUID.fromString(request.getUuid());
-            } catch (NullPointerException | IllegalArgumentException e) {
-                results.add(new ResultDetail(ResultDetail.ResultsDetailsType.ERROR, String.format(errorMessageResource.getString("PARSE_ERR01"), request.getUuid(), UUID.class.getName()), e.getMessage()));
-            }
         }
 
         return results;
